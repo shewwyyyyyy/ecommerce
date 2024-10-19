@@ -1,4 +1,20 @@
-<?php require_once("includes/header.php") ?>
+<?php
+
+session_start();
+require_once("includes/header.php"); 
+
+if(isset($_SESSION["error"])){
+    $messErr = $_SESSION["error"];
+    unset($_SESSION["error"]);
+    echo $messErr;
+}
+if(isset($_SESSION["error"])){
+    $messSucc = $_SESSION["error"];
+    unset($_SESSION["error"]);
+    echo $messErr;
+}
+
+?>
     <!-- Navbar -->
     <?php require_once("includes/navbar.php") ?>
     <!-- Registration Form -->
@@ -9,22 +25,23 @@
                     <div class="card-header bg-primary text-white text-center">
                         <h4>Create Your Account</h4>
                     </div>
-                    <div class="card-body">
+                        <div class="card-body">
 
-                    <?php if(isset($_GET["success"])) { ?>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong> <?php echo $_GET["success"];?></strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php } ?>
+                        <?php if(isset($messSucc)) { ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong> <?php echo $messSucc;?></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php } ?>
 
-                    <?php if(isset($_GET["error"])) { ?>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong><?php echo $_GET["error"];?></strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php } ?>
-                        <form action="authregister.php" method="POST">
+                        <?php if(isset($messErr)) { ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong><?php echo $messErr;?></strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php 
+                        } ?>
+                        <form action="app/auth/register.php" method="POST">
                             <div class="mb-3">
                                 <label for="fullname" class="form-label">Full Name</label>
                                 <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your full name" required>
@@ -47,7 +64,7 @@
                         </form>
                     </div>
                     <div class="card-footer text-center">
-                        <p>Already have an account? <a href="login.html" class="text-primary">Login here</a></p>
+                        <p>Already have an account? <a href="login.php" class="text-primary">Login here</a></p>
                     </div>
                 </div>
             </div>

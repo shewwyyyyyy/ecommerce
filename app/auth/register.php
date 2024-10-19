@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $fullname = $_POST["fullname"];
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -31,22 +32,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password = password_hash(trim($password),PASSWORD_BCRYPT);
       
         if ( $stmt -> execute()){
-            header("location: /registration.php?success=Registration Successful");
+            header("location: /registration.php");
+            $_SESSION["success"] = "Registration Successful";
             exit;
 
         } else{
-            header("location: /registration.php?error=Insert Error");
+            header("location: /registration.php");
+            $_SESSION["error"] = "Insert Error";
             exit;
         }
 
         } catch (Exception $e){
-            echo "Connection Failed: " . $e->getMessage();
+            header("location: /registration.php");
+            $_SESSION["error"] = "Username already exist";
         }
 
     } else{
-        header("location: /registration.php?error=Password Mismatch");
+        header("location: /registration.php");
+        $_SESSION["error"] = "Password not match";
         exit;
     }
+      
             
 
     }

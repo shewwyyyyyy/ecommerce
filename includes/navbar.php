@@ -32,7 +32,11 @@
                             <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
                             <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="logout.html">Logout</a></li>
+                            <li>
+                                <form action="/logout.php" method="POST">
+                                    <button class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
                         </ul>
                         </li>
                         <?php } ?>
