@@ -1,10 +1,14 @@
-<?php
-session_start();
-require_once("includes/header.php");
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $_SESSION = [];
-    session_destroy();
-}
+<?php 
+    
+    session_start();
+    require_once("includes/header.php");
+
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $_SESSION = [];
+        session_destroy();
+    }
+
 ?>
 
     <div class="container vh-100 d-flex justify-content-center align-items-center">
@@ -17,7 +21,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div>
 
-
-<?php require_once("includes/footer.php") ?>
-</body>
-</html> 
+<!-- Bootstrap 5 JS Bundle -->
+<?php require_once("includes/footer.php")?>
+ 

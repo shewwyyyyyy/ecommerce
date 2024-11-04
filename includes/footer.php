@@ -4,4 +4,10 @@
             <a href="#" class="text-white">Privacy Policy</a> | 
             <a href="#" class="text-white">Terms & Conditions</a>
         </nav>
-    </footer>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer -->
+    
+</body>
+</html>

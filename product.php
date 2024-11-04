@@ -1,6 +1,8 @@
-<?php require_once("includes/header.php") ?>
+<?php require_once("includes/header.php")?>
+
     <!-- Navbar -->
-    <?php require_once("includes/navbar.php") ?>
+    <?php require_once("includes/navbar.php")?>
+
 
     <!-- Product Details -->
     <div class="container content mt-5">
@@ -77,6 +79,7 @@
         </div>
     </div>
 
-    <?php require_once("includes/foot.php") ?>
-</body>
-</html>
+    <!-- Bootstrap 5 JS Bundle -->
+    <!-- Footer -->
+    <?php require_once("includes/footer.php")?>
+

@@ -1,16 +1,20 @@
 <?php 
-session_start();
-require_once("includes/header.php"); 
-
-if(isset($_SESSION["error"])){
-    $messErr = $_SESSION["error"];
-    unset($_SESSION["error"]);
-    echo $messErr;
-}
+    session_start();
+    require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
+    require_once("includes/header.php");
+    
+    //check if session ["error"] exist
+    if(isset($_SESSION["error"])){
+        $messErr = $_SESSION["error"];
+        unset($_SESSION["error"]);
+    }
+    
+    
 ?>
 
     <!-- Navbar -->
-    <?php require_once("includes/navbar.php") ?>
+    <?php require_once("includes/navbar.php")?>
+
 
     <!-- Login Form -->
     <div class="container content mt-5">
@@ -21,14 +25,14 @@ if(isset($_SESSION["error"])){
                         <h4>Login to Your Account</h4>
                     </div>
                     <div class="card-body">
+                           
 
-                        <?php 
-                        if(isset($messErr)) { ?>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong><?php echo $messErr;?></strong> 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <?php } ?>
+                            <?php if(isset($messErr)){ ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong><?php echo $messErr; ?></strong> 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <?php } ?>
                         <form action="app/auth/login.php" method="POST">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
@@ -54,6 +58,7 @@ if(isset($_SESSION["error"])){
     
     
 
-    <?php require_once("includes/footer.php") ?>
-</body>
-</html>
+    <!-- Bootstrap 5 JS Bundle -->
+    <!-- Footer -->
+    <?php require_once("includes/footer.php")?>
+

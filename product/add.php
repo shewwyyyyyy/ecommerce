@@ -18,10 +18,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="homepage.php">Home</a>
+                        <a class="nav-link" href="homepage.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-dashboard.php">Dashboard</a>
+                        <a class="nav-link" href="admin-dashboard.html">Dashboard</a>
                     </li>
 
                     <!-- Dropdown for Admin User -->

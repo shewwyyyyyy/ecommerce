@@ -7,26 +7,36 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registration.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.php">Cart</a>
+                        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?>index.php">Home</a>
                     </li>
 
-                     <!-- Dropdown for Signed-in User 
-                      //if naka set yung session fullname, dun lang lalabas yung name ng user_error -->
+                    <!-- only display login and register link when there is no session -->
+                     <?php if(!isset($_SESSION["username"])) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>login.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>registration.php">Register</a>
+                    </li>
+                    <?php } ?>    
 
-                        <?php if(isset($_SESSION["fullname"])) {?>
-                        <li class="nav-item dropdown">
+                    <!-- display products link if admin -->
+                    <?php if(isset($_SESSION["username"]) && (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == "1")) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>views/admin/products/index.php">Products</a>
+                    </li>
+                    <?php } ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>cart.php">Cart</a>
+                    </li>
+
+                    <!-- Dropdown for Signed-in User -->
+                    <!-- if naka set yung $_SESSION["fullname], dun lang lalabas yung name ng username-->
+                     <?php if(isset($_SESSION["fullname"])) { ?>
+                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php echo $_SESSION["fullname"]; ?> 
-                             
+                            <?php echo $_SESSION["fullname"]; ?> <!-- Replace with dynamic username -->
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
@@ -34,14 +44,12 @@
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form action="/logout.php" method="POST">
-                                    <button class="dropdown-item">Logout</button>
+                                <button class="dropdown-item">Logout</button>
                                 </form>
                             </li>
                         </ul>
-                        </li>
-                        <?php } ?>
-
-                    
+                    </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
