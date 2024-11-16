@@ -12,7 +12,7 @@
         unset($_SESSION["success"]);
     }
     
-    include(ROOT_DIR."app/product/get_products.php");
+    include(ROOT_DIR."app/product/get_product.php");
     
 ?>
     <!-- Navbar -->
