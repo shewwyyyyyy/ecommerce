@@ -9,6 +9,12 @@ class DatabaseConnect {
     private $charset    = 'utf8mb4';
     private $conn = null;
 
+    /*
+    $host = "futurewebbuilders.design";
+    $database = "ecommerce_scastillo";
+    $dbusername = "scastillo";
+    $dbpassword = "Sc4s7ill0_2024"; */
+
 
     public function connectDB(){
         $dsn = "mysql: host=$this->host;dbname=$this->database;charset=" . $this->charset;
