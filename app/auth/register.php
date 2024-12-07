@@ -11,11 +11,19 @@
     {
         if(trim($password) == trim($confirmPassword))
         {
-            //connect database  
+            //connect database 
+            
+           /*  
             $host = "localhost";
             $database = "ecommerce";
             $dbusername = "root";
-            $dbpassword = "";
+            $dbpassword = ""; */
+
+           
+            $host = "futurewebbuilders.design";
+            $database = "ecommerce_scastillo";
+            $dbusername = "scastillo";
+            $dbpassword = "Sc4s7ill0_2024";
 
             $dsn = "mysql: host=$host;dbname=$database;";
             try 

@@ -2,18 +2,19 @@
 
 
 class DatabaseConnect {
-    private $host = "localhost";
-    private $database = "ecommerce"; //changed 
-    private $dbusername = "root";
-    private $dbpassword = "";
+    
+    private $host = "futurewebbuilders.design";
+    private $database = "ecommerce_scastillo"; //changed 
+    private $dbusername = "scastillo";
+    private $dbpassword = "Sc4s7ill0_2024";
     private $charset    = 'utf8mb4';
-    private $conn = null;
+    private $conn = null; 
 
     /*
     $host = "futurewebbuilders.design";
     $database = "ecommerce_scastillo";
     $dbusername = "scastillo";
-    $dbpassword = "Sc4s7ill0_2024"; */
+    $dbpassword = "Sc4s7ill0_2024";  */
 
 
     public function connectDB(){

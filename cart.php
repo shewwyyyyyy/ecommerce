@@ -6,9 +6,15 @@
     $db = new DatabaseConnect();
     $conn = $db->connectDB();
 
+    if(isset($_SESSION["success"])){
+        $messSucc = $_SESSION["success"];
+        unset($_SESSION["success"]);
+    }
+
     //this variable will hold product data from db
     $carts = [];
-    $userId = $_SESSION["user_id"];
+    $userId = $_SESSION['user_id'] ?? header('Location: '.'login.php');
+
     $subtotal = 0;
     $purchaseTotal = 0;
 

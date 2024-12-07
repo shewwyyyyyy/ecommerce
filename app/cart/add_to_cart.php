@@ -69,27 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
              ':p_total_price' => $computedPrice];      
     
     
-    /*
-    $sql = "UPDATE products SET products.product_name = :p_product_name,
-                    products.product_description = :p_product_description,
-                    products.category_id = :p_category_id,
-                    products.base_price = :p_base_price,
-                    products.stocks = :p_stocks,
-                    products.unit_price = :p_unit_price,
-                    products.total_price = :p_total_price,
-                    products.updated_at = NOW()
-                    WHERE products.id = :p_id";   
-    
-    $stmt = $conn->prepare($sql);
-    $data = [':p_product_name'    => $productName,
-         ':p_product_description' => $productDesc,
-         ':p_category_id'         => $category,
-         ':p_base_price'          => $basePrice,
-         ':p_stocks'              => $numberOfStocks,
-         ':p_unit_price'          => $unitPrice,
-         ':p_total_price'         => $totalPrice, 
-         ':p_id'                  => $productId]; */
-    
+  
     if(!$stmt->execute($data)){
         $SESSION["error"] = "Failed to update the record";
         header("location: ".BASE_URL."views/product/product.php?id=" .$productId);
