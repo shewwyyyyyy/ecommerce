@@ -56,7 +56,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        
     }
     $product = $stmt->fetch(); //return only 1 record
-   
+    
+    
+    $computedPrice = ($product["unit_price"] * $quantity);
     $sql = "INSERT INTO carts (user_id, product_id, quantity, unit_price, total_price,created_at, updated_at)
             VALUES (:p_user_id, :p_product_id, :p_quantity, :p_unit_price, :p_total_price, NOW(), NOW())"; 
     $stmt = $conn->prepare($sql);
@@ -64,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
              ':p_product_id'  => $productId,
              ':p_quantity'    => $quantity,
              ':p_unit_price'  => $product["unit_price"],
-             ':p_total_price' => $product["total_price"]];      
+             ':p_total_price' => $computedPrice];      
     
     
     /*
@@ -86,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          ':p_stocks'              => $numberOfStocks,
          ':p_unit_price'          => $unitPrice,
          ':p_total_price'         => $totalPrice, 
-         ':p_id'                  => $productId; */
+         ':p_id'                  => $productId]; */
     
     if(!$stmt->execute($data)){
         $SESSION["error"] = "Failed to update the record";
